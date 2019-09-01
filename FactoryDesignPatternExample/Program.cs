@@ -9,59 +9,8 @@
 //
 // Usefull for:
 // - Creating multiple objects that can be grouped together.
-//
-// TODO :: ik denk dat dit een Abstract Factory Pattern is..
-// Zoek uit het verschill tussen Factory Method en Abstract Factory.
 namespace FactoryDesignPatternExample
-{
-    #region Product(s)
-    public interface IProduct
-    {
-        string GetName();        
-    }
-
-    public class Phone : IProduct
-    {        
-        public string GetName() => "Apple TouchPad";        
-    }
-
-    public class Laptop : IProduct
-    {
-        public string GetName() => "Macbook Air";
-    }
-    #endregion
-
-    #region Factory Classes
-    public abstract class ProductAbstractFactory
-    {
-        // Factory Method
-        protected abstract IProduct FactoryMethodMakeProduct();
-
-        // Call the Factory Method to create the Product.
-        public IProduct GetObject() => this.FactoryMethodMakeProduct();
-    }
-
-    public class PhoneConcreteFactory : ProductAbstractFactory
-    {
-        // Factory Method
-        protected override IProduct FactoryMethodMakeProduct()
-        {
-            IProduct product = new Phone(); // Create the iProduct (Phone)     
-            return product;
-        }
-    }
-
-    public class LaptopConcreteFactory : ProductAbstractFactory
-    {
-        // Factory Method
-        protected override IProduct FactoryMethodMakeProduct()
-        {
-            IProduct product = new Laptop(); // Create the iProduct (Laptop)    
-            return product;
-        }
-    }
-    #endregion
-
+{   
     public class MainClass
     {
         private static ProductAbstractFactory _phone  = new PhoneConcreteFactory();
